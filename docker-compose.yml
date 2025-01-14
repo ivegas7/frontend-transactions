@@ -1,0 +1,14 @@
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: Dockerfile 
+    ports:
+      - "3000:3000" 
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/tenpo  # Conexión a la base de datos (si está en un contenedor separado)
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+
+volumes:
+  postgres-data:
